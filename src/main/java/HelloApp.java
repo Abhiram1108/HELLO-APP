@@ -2,27 +2,26 @@ public class HelloApp {
 
     public static void main(String[] args) {
 
-        String greeting;
-
-        // If no names provided
+        // Case 1: No arguments
         if (args.length == 0) {
-            greeting = "World";
-        } else {
-
-            StringBuilder names = new StringBuilder();
-
-            for (int i = 0; i < args.length; i++) {
-
-                names.append(args[i]);
-
-                if (i < args.length - 1) {
-                    names.append(", ");
-                }
-            }
-
-            greeting = names.toString();
+            System.out.println("Hello, World!");
+            return;
         }
 
-        System.out.println("Hello, " + greeting + "!");
+        // Case 2: Multiple names using enhanced for loop
+        StringBuilder nameBuilder = new StringBuilder();
+        boolean first = true;
+
+        for (String name : args) {
+
+            if (!first) {
+                nameBuilder.append(", ");
+            }
+
+            nameBuilder.append(name);
+            first = false;
+        }
+
+        System.out.println("Hello, " + nameBuilder + "!");
     }
 }
